@@ -2,6 +2,10 @@
 
 @section('title', $post->title . ' - Casa Smart Shop')
 
+
+@section('meta_description', $post->meta_description ?? Str::limit(strip_tags($post->excerpt), 150))
+@section('og_type', 'article')
+
 @section('content')
     <article class="max-w-3xl mx-auto bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
         <div class="mb-6">

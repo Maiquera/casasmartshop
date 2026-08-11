@@ -3,7 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Casa Smart Shop - Automação Residencial & Smart Home')</title>
+    <title>@yield('title', 'Casa Smart Shop - Guia de Automação & Casa Inteligente')</title>
+
+    <meta name="description" content="@yield('meta_description', 'Encontre os melhores guias, análises e dispositivos para transformar sua casa em uma Smart Home.')">
+    <link rel="canonical" href="{{ url()->current() }}">
+
+    <meta property="og:type" content="@yield('og_type', 'website')">
+    <meta property="og:title" content="@yield('title', 'Casa Smart Shop')">
+    <meta property="og:description" content="@yield('meta_description', 'Guia de Automação & Casa Inteligente')">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:site_name" content="Casa Smart Shop">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@yield('title', 'Casa Smart Shop')">
+    <meta name="twitter:description" content="@yield('meta_description', 'Guia de Automação & Casa Inteligente')">
+
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">

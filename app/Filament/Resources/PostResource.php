@@ -51,6 +51,11 @@ class PostResource extends Resource
                         ->rows(3)
                         ->label('Resumo (Excerpt)'),
 
+                    TextInput::make('meta_description')
+                        ->maxLength(160)
+                        ->label('Meta Description (SEO)')
+                        ->helperText('Máximo de 160 caracteres. Resumo artigo Google.'),
+
                     RichEditor::make('content')
                         ->required()
                         ->columnSpanFull()
