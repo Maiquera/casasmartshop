@@ -18,6 +18,8 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Str;
+use Filament\Forms\Components\FileUpload;
+use Filament\Tables\Columns\ImageColumn;
 
 class PostResource extends Resource
 {
@@ -69,6 +71,12 @@ class PostResource extends Resource
                         ->default('draft')
                         ->required()
                         ->label('Status'),
+                    FileUpload::make('image')
+                        ->image()
+                        ->directory('posts')
+                        ->label('Imagem de Capa')
+                        ->imageEditor()
+                        ->columnSpanFull(),
 
                     DateTimePicker::make('published_at')
                         ->label('Data de Publicação')
@@ -99,6 +107,9 @@ class PostResource extends Resource
                         'draft' => 'Rascunho',
                         'published' => 'Publicado',
                     }),
+                ImageColumn::make('image')
+                    ->label('Capa')
+                    ->square(),
 
                 Tables\Columns\TextColumn::make('published_at')
                     ->dateTime('d/m/Y H:i')

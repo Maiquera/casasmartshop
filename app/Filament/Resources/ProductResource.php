@@ -9,6 +9,9 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\FileUpload;
+use Filament\Tables\Columns\ImageColumn;
 
 class ProductResource extends Resource
 {
@@ -45,6 +48,11 @@ class ProductResource extends Resource
                         ->required()
                         ->columnSpanFull()
                         ->label('Link de Afiliado (Amazon)'),
+                    FileUpload::make('image')
+                        ->image()
+                        ->directory('products')
+                        ->label('Imagem do Produto')
+                        ->imageEditor(),
 
                     Forms\Components\Toggle::make('is_featured')
                         ->label('Destaque ("Melhor Escolha")')
@@ -68,6 +76,10 @@ class ProductResource extends Resource
                 Tables\Columns\TextColumn::make('price')
                     ->money('BRL')
                     ->label('Preço'),
+
+                ImageColumn::make('image')
+                    ->label('Imagem')
+                    ->square(),
 
                 Tables\Columns\IconColumn::make('is_featured')
                     ->boolean()

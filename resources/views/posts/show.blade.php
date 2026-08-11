@@ -13,6 +13,12 @@
                 class="text-xs font-semibold uppercase tracking-wider text-amber-600 bg-amber-50 px-3 py-1 rounded-full hover:bg-amber-100 transition">
                 {{ $post->category->name }}
             </a>
+            @if ($post->image)
+                <div class="mb-8 overflow-hidden rounded-2xl shadow-sm">
+                    <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}"
+                        class="w-full h-auto max-h-[450px] object-cover">
+                </div>
+            @endif
             <h1 class="text-3xl font-extrabold text-slate-900 mt-3 mb-2">{{ $post->title }}</h1>
             <p class="text-xs text-gray-400">Publicado em
                 {{ $post->published_at ? $post->published_at->format('d/m/Y') : '' }}</p>
@@ -37,10 +43,26 @@
                                         class="text-[10px] bg-amber-500 text-white font-bold px-2 py-0.5 rounded uppercase">Melhor
                                         Escolha</span>
                                 @endif
-                                <h4 class="font-bold text-slate-800 text-base mt-1">{{ $product->name }}</h4>
-                                <p class="text-xs text-gray-500">Marca: {{ $product->brand ?? 'Geral' }}</p>
+
+                                <div class="flex items-center gap-4 mb-4">
+                                    @if ($product->image)
+                                        <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}"
+                                            class="w-20 h-20 object-contain rounded-lg bg-white p-2 border border-gray-100">
+                                    @endif
+                                    <div>
+                                        <h4 class="font-bold text-slate-900 text-lg">{{ $product->name }}</h4>
+                                        @if ($product->brand)
+                                            <p class="text-xs text-gray-500 mt-0.5">Marca: {{ $product->brand }}</p>
+                                        @endif
+                                    </div>
+                                </div>
+
+
+
+                                {{-- <h4 class="font-bold text-slate-800 text-base mt-1">{{ $product->name }}</h4>
+                                <p class="text-xs text-gray-500">Marca: {{ $product->brand ?? 'Geral' }}</p> --}}
                                 @if ($product->price)
-                                    <p class="text-lg font-extrabold text-slate-900 mt-1">R$
+                                    <p class="text-lg font-extrabold text-slate-900">R$
                                         {{ number_format($product->price, 2, ',', '.') }}</p>
                                 @endif
                             </div>

@@ -14,7 +14,7 @@ class Product extends Model
         'name',
         'brand',
         'price',
-        'image_url',
+        'image',
         'affiliate_link',
         'is_featured',
     ];
