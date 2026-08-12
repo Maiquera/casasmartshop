@@ -57,10 +57,6 @@
                                     </div>
                                 </div>
 
-
-
-                                {{-- <h4 class="font-bold text-slate-800 text-base mt-1">{{ $product->name }}</h4>
-                                <p class="text-xs text-gray-500">Marca: {{ $product->brand ?? 'Geral' }}</p> --}}
                                 @if ($product->price)
                                     <p class="text-lg font-extrabold text-slate-900">R$
                                         {{ number_format($product->price, 2, ',', '.') }}</p>

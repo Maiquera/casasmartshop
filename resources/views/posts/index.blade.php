@@ -3,10 +3,22 @@
 @section('title', 'Casa Smart Shop - Dicas e Reviews de Casa Inteligente')
 
 @section('content')
-    <div class="text-center mb-10">
-        <h1 class="text-4xl font-extrabold text-slate-900 mb-2">Transforme sua Casa numa Smart Home</h1>
-        <p class="text-gray-600 max-w-2xl mx-auto">Reviews, guias de instalação e as melhores recomendações de dispositivos
-            inteligentes para o seu lar.</p>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 items-center gap-12">
+
+        <div class="lg:col-span-5">
+            <h1 class="text-5xl mb-4 font-extrabold bg-gradient-to-r from-sky-400 to-blue-700 bg-clip-text text-transparent">Encontre os melhores dispositivos para sua Casa
+                Inteligente</h1>
+
+                
+            <p class="text-gray-600 max-w-2xl mx-auto">Reviews, comparativos, tutoriais e as melhores ofertas para
+                automatizar sua casa com segurança.</p>
+        </div>
+
+        <div class="lg:col-span-7 flex justify-center lg:justify-end">
+            <img src="{{ asset('images/home_hero.png') }}" class="w-full max-w-2xl" alt="Sala Inteligente">
+        </div>
+
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
