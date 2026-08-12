@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,6 +21,7 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
 
     <header class="bg-slate-900 text-white shadow-md">
@@ -37,9 +39,43 @@
         @yield('content')
     </main>
 
-    <footer class="bg-slate-900 text-gray-400 text-center py-6 border-t border-slate-800">
-        <p class="text-sm">&copy; {{ date('Y') }} Casa Smart Shop. Guia de Compras e Automação Residencial.</p>
+    <footer class="bg-slate-900 text-slate-400 mt-20 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-3">Casa Smart Shop</h3>
+                    <p class="text-xs leading-relaxed text-slate-400">
+                        Seu guia definitivo para automação residencial, reviews e recomendações dos melhores
+                        dispositivos de Smart Home.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-sm mb-3">Links Úteis</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="{{ route('pages.about') }}" class="hover:text-amber-400 transition">Sobre Nós</a>
+                        </li>
+                        <li><a href="{{ route('pages.privacy') }}" class="hover:text-amber-400 transition">Política de
+                                Privacidade & Afiliados</a></li>
+                        <li><a href="{{ route('pages.terms') }}" class="hover:text-amber-400 transition">Termos de
+                                Uso</a></li>
+                        <li><a href="{{ route('pages.contact') }}" class="hover:text-amber-400 transition">Contato</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-sm mb-3">Aviso Legal</h4>
+                    <p class="text-[11px] leading-relaxed text-slate-500">
+                        Como participante do Programa de Associados da Amazon, podemos receber remunerações por compras
+                        qualificadas efetuadas através dos links disponibilizados.
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-6 text-center text-xs text-slate-500">
+                &copy; {{ date('Y') }} Casa Smart Shop. Todos os direitos reservados.
+            </div>
+        </div>
     </footer>
 
 </body>
+
 </html>
