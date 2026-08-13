@@ -13,9 +13,9 @@ class PostController extends Controller
         $posts = Post::with('category')
         ->where('status', 'published')
         ->latest('published_at')
-        ->paginate(6);
+        ->paginate(8);
 
-        return view('posts.index', compact('posts'));
+        return view('home', compact('posts'));
     }
 
     public function show(string $slug): View
