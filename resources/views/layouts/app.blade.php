@@ -26,6 +26,8 @@
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     {{-- Mobile --}}
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
 <body class="bg-blue-100 text-slate-800 antialiased flex flex-col min-h-screen">
@@ -38,7 +40,7 @@
 
                 <div class="flex items-center gap-3 shrink-0">
                     <a href="{{ route('home') }}" class="flex items-center gap-2 group">
-                        <img src="{{ asset('images/Logo.png') }}" alt="Casa Smart Shop" class="h-20">    
+                        <img src="{{ asset('images/Logo.png') }}" alt="Casa Smart Shop" class="h-20">
                         <span
                             class="font-bold bg-gradient-to-r from-white via-sky-400 to-[#ca9540] bg-clip-text text-transparent">
                             CasaSmartShop
@@ -85,7 +87,7 @@
                 <nav class="flex items-center justify-between text-xs font-semibold py-2.5">
                     <a href="{{ route('home') }}"
                         class="px-3 py-1.5 rounded-lg whitespace-nowrap transition {{ request()->routeIs('home') ? 'bg-[#ca9540] text-slate-950 font-bold' : 'hover:bg-slate-800 hover:text-white' }}">
-                         Início
+                        Início
                     </a>
 
                     @foreach ($navCategories as $category)

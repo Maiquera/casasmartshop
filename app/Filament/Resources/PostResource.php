@@ -11,7 +11,7 @@ use Filament\Forms\Components\Card;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
-use Filament\Forms\Components\RichEditor;
+// use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -20,6 +20,7 @@ use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Str;
 use Filament\Forms\Components\FileUpload;
 use Filament\Tables\Columns\ImageColumn;
+use FilamentTiptapEditor\TiptapEditor;
 
 class PostResource extends Resource
 {
@@ -58,7 +59,7 @@ class PostResource extends Resource
                         ->label('Meta Description (SEO)')
                         ->helperText('Máximo de 160 caracteres. Resumo artigo Google.'),
 
-                    RichEditor::make('content')
+                    TiptapEditor::make('content')
                         ->required()
                         ->columnSpanFull()
                         ->label('Conteúdo do Artigo'),

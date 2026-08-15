@@ -13,12 +13,8 @@
         @endif
     </div>
 
-
-
-    <!-- ESTRUTURA PRINCIPAL: GRID DE 2 COLUNAS -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
-        <!-- COLUNA PRINCIPAL: FEED DE POSTS (8 Colunas) -->
         <div class="lg:col-span-8 space-y-8">
             @forelse($posts as $post)
                 <article
@@ -42,8 +38,6 @@
                 </div>
             @endforelse
         </div>
-
-        <!-- COLUNA LATERAL: SIDEBAR (4 Colunas) -->
         <aside class="lg:col-span-4 space-y-8 sticky top-24">
             <x-sidebar-posts :category="$category" />
         </aside>
