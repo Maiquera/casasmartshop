@@ -1,2 +1,8 @@
 User-agent: *
-Disallow:
+Allow: /
+
+Disallow: /admin
+Disallow: /admin/*
+Disallow: /storage/*.json
+
+Sitemap: https://casasmartshop.com.br/sitemap.xml

@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SitemapController;
 
 
 Route::get('/', [PostController::class, 'index'])->name('home');
@@ -23,3 +24,5 @@ Route::post('/contato', [PageController::class, 'sendContact'])->name('pages.con
 
 
 Route::post('/newsletter', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
+
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
