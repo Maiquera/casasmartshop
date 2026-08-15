@@ -50,8 +50,6 @@
 
                             prose-figure:my-4 prose-figure:flex prose-figure:flex-col prose-figure:justify-center prose-figure:items-center prose-figure:gap-2 prose-figure:bg-black
                 ">
-
-
                     {!! $post->content !!}
                 </div>
 
