@@ -6,7 +6,11 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\HomeController;
+<<<<<<< HEAD
 use App\Http\Controllers\SitemapController;
+=======
+use App\Mail\WelcomeNewsletter;
+>>>>>>> feature/newsletter_subscriber
 
 
 Route::get('/', [PostController::class, 'index'])->name('home');
@@ -25,4 +29,12 @@ Route::post('/contato', [PageController::class, 'sendContact'])->name('pages.con
 
 Route::post('/newsletter', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
 
+<<<<<<< HEAD
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
+=======
+
+// Teste email welcome newsletter
+Route::get('/preview-email', function () {
+    return new WelcomeNewsletter();
+});
+>>>>>>> feature/newsletter_subscriber
