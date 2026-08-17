@@ -28,4 +28,22 @@ class PostController extends Controller
 
         return view('posts.show', compact('post'));
     }
+
+    public function search(Request $request): View {
+        $term = trim($request->input('q'));
+
+        $posts = Post::query()->where('status', 'published')->when($term, function($query, $term){
+            $query->where(function ($q) use ($term) {
+                $q->where('title', 'LIKE')
+                ->orWhere('excerpt', 'LIKE', "%{$term}%")
+                ->orWhere('content', 'LIKE', "%{$term}%");
+            });
+        })
+        ->select(['id', 'category_id', 'title', 'slug', 'image', 'excerpt', 'content', 'published_at'])
+        ->latest('published_at')
+        ->paginate(9)
+        ->withQueryString();
+
+        return view('posts.search', compact('posts', 'term'));
+    }
 }

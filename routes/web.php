@@ -26,3 +26,5 @@ Route::post('/contato', [PageController::class, 'sendContact'])->name('pages.con
 Route::post('/newsletter', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
 
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
+
+Route::get('/busca', [PostController::class, 'search'])->name('posts.search');

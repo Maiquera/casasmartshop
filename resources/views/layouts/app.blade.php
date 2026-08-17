@@ -49,8 +49,8 @@
                 </div>
 
                 <div class="hidden sm:flex items-center flex-1 max-w-2xl mx-auto">
-                    <form action="{{ route('home') }}" method="GET" class="w-full relative">
-                        <input type="text" name="search" value="{{ request('search') }}"
+                    <form action="{{ route('posts.search') }}" method="GET" class="w-full relative">
+                        <input type="search" name="q" value="{{ request('q') }}"
                             placeholder="O que você procura? Ex: Lâmpadas, Robô Aspirador, Alexa..."
                             class="w-full bg-slate-100 text-sm text-slate-800 pl-10 pr-4 py-2.5 rounded-full focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:bg-white border border-transparent focus:border-amber-500 transition shadow-inner">
                         <svg class="w-5 h-5 text-slate-400 absolute left-3.5 top-3" fill="none" stroke="currentColor"
