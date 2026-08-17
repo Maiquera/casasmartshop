@@ -26,7 +26,63 @@
                     {{ $post->title }}
                 </h1>
 
-                <div
+                <div class="mb-10 space-y-6">
+                    @if (is_array($post->content))
+                        @foreach ($post->content as $block)
+                            {{-- 1. BLOCO DE TEXTO (Com suas estilizações do Tailwind Prose) --}}
+                            @if (($block['type'] ?? null) === 'text')
+                                <div
+                                    class="prose max-w-none leading-relaxed 
+                            
+                            prose-h2:mt-3
+                            prose-h2:mb-1
+                            prose-h2:text-slate-800
+
+                            prose-h3:my-1
+                            prose-h3:text-slate-700
+                    
+                            prose-p:my-0
+                            prose-p:indent-2
+
+                            prose-ul:list-disc
+                            prose-ul:my-0
+                            marker:text-amber-500 marker:font-bold
+
+                            prose-a:none
+                            prose-a:text-hover:text-amber-600 prose-a:font-semibold prose-a:underline
+
+                            prose-img:rounded-xl
+
+                            prose-figure:my-4 prose-figure:flex prose-figure:flex-col prose-figure:justify-center prose-figure:items-center prose-figure:gap-2 prose-figure:bg-black
+                            ">
+                                    {!! $block['data']['content'] !!}
+                                </div>
+
+                                {{-- 2. BLOCO DO CARD DE PRODUTO AFILIADO --}}
+                            @elseif(($block['type'] ?? null) === 'affiliate_product')
+                                <x-affiliate-card :title="$block['data']['title']" :description="$block['data']['description'] ?? null" :image="$block['data']['image']" :link="$block['data']['link']"
+                                    :price="$block['data']['price'] ?? null" :store="$block['data']['store'] ?? 'amazon'" />
+                            @endif
+                        @endforeach
+                    @else
+                        {{-- Compatibilidade para posts antigos que não usam o Builder --}}
+                        <div
+                            class="prose max-w-none text-slate-700 leading-6
+                            prose-ul:list-disc prose-ul:pl-6
+                            prose-p:my-1
+                            prose-h2:mt-3 prose-h2:mb-1
+                            prose-h3:mt-3 prose-h3:mb-1
+                            marker:text-amber-500 marker:font-bold">
+                            {!! $post->content !!}
+                        </div>
+                    @endif
+                </div>
+
+
+
+
+
+                {{-- <div
                     class="prose max-w-none leading-relaxed
                             
                             prose-h2:mt-3
@@ -50,11 +106,22 @@
 
                             prose-figure:my-4 prose-figure:flex prose-figure:flex-col prose-figure:justify-center prose-figure:items-center prose-figure:gap-2 prose-figure:bg-black
                 ">
-                    {!! $post->content !!}
-                </div>
+                </div> --}}
+
+                {{-- 
+                <x-affiliate-card title="Echo Dot 5ª Geração com Alexa"
+                    description="O smart speaker de maior sucesso para automação residencial. Controle luzes, fechaduras e rotinas com facilidade."
+                    image="https://m.media-amazon.com/images/I/71hwX2L8k1L._AC_SL1000_.jpg" link="https://amzn.to/exemplo"
+                    price="415,00" store="amazon" /> --}}
+
+
+
+
+
+
 
                 <!-- Bloco de Produtos Afiliados (Amazon CTA) -->
-                @if ($post->products && $post->products->isNotEmpty())
+                {{-- @if ($post->products && $post->products->isNotEmpty())
                     <div class="mt-12 pt-8 border-t border-gray-100">
                         <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
                             🛒 Produto(s) Recomendado(s) neste Artigo
@@ -97,7 +164,7 @@
                             @endforeach
                         </div>
                     </div>
-                @endif
+                @endif --}}
             </main>
 
             <aside class="lg:col-span-1">

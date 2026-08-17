@@ -40,6 +40,12 @@
                                         <span class="text-xs text-gray-400">•
                                             {{ $post->created_at->format('d/m/Y') }}</span>
                                     </div>
+                                    {{-- Imagem principal do card (prioriza a imagem do produto, se existir) --}}
+                                    <img 
+                                        src="{{ $post->first_product_image ?: asset('storage/' . $post->image) }}" 
+                                        alt="{{ $post->title }}" 
+                                        class="w-full h-48 object-cover rounded-t-lg"
+                                    >
 
                                     <h2
                                         class="font-bold text-slate-900 text-lg leading-snug group-hover:text-amber-600 transition mb-2 line-clamp-2">
@@ -47,7 +53,7 @@
                                     </h2>
 
                                     <p class="text-slate-600 text-xs line-clamp-3 leading-relaxed">
-                                        {{ Str::limit(strip_tags($post->content), 120) }}
+                                        {{ $post->excerpt ?: Str::limit(strip_tags($post->clean_content), 120) }}
                                     </p>
                                 </div>
                             </div>

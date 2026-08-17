@@ -25,8 +25,45 @@ class Post extends Model
     ];
 
     protected $casts = [
+        'content' => 'array',
         'published_at' => 'datetime',
     ];
+
+    public function getCleanContentAttribute(): string
+    {
+        if (is_string($this->content)) {
+            return $this->content;
+        }
+
+        if (!is_array($this->content)) {
+            return '';
+        }
+
+        $htmlSegments = [];
+
+        foreach ($this->content as $block) {
+            if (($block['type'] ?? '') === 'text' && !empty($block['data']['content'])) {
+                $htmlSegments[] = $block['data']['content'];
+            }
+        }
+
+        return implode(' ', $htmlSegments);
+    }
+
+    public function getFirstProductImageAttribute(): ?string
+    {
+        if (!is_array($this->content)) {
+            return null;
+        }
+
+        foreach ($this->content as $block) {
+            if (($block['type'] ?? '') === 'affiliate_product' && !empty($block['data']['image'])) {
+                return $block['data']['image'];
+            }
+        }
+
+        return null;
+    }
 
     public function category(): BelongsTo {
         return $this->belongsTo(Category::class);

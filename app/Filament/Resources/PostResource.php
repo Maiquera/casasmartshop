@@ -11,7 +11,7 @@ use Filament\Forms\Components\Card;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
-// use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -21,6 +21,7 @@ use Illuminate\Support\Str;
 use Filament\Forms\Components\FileUpload;
 use Filament\Tables\Columns\ImageColumn;
 use FilamentTiptapEditor\TiptapEditor;
+use Filament\Forms\Components\Builder;
 
 class PostResource extends Resource
 {
@@ -32,39 +33,35 @@ class PostResource extends Resource
 
     public static function form(Form $form): Form
     {
+    
         return $form
             ->schema([
-                Card::make()->schema([
-                    Select::make('category_id')
+                Forms\Components\Card::make()->schema([
+                    Forms\Components\Select::make('category_id')
                         ->relationship('category', 'name')
                         ->required()
                         ->label('Categoria'),
 
-                    TextInput::make('title')
+                    Forms\Components\TextInput::make('title')
                         ->required()
                         ->label('Título do Artigo')
                         ->live(onBlur: true)
                         ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state))),
 
-                    TextInput::make('slug')
+                    Forms\Components\TextInput::make('slug')
                         ->required()
                         ->label('Slug (URL)'),
 
-                    Textarea::make('excerpt')
+                    Forms\Components\Textarea::make('excerpt')
                         ->rows(3)
                         ->label('Resumo (Excerpt)'),
 
-                    TextInput::make('meta_description')
+                    Forms\Components\TextInput::make('meta_description')
                         ->maxLength(160)
                         ->label('Meta Description (SEO)')
-                        ->helperText('Máximo de 160 caracteres. Resumo artigo Google.'),
+                        ->helperText('Máximo de 160 caracteres. Resumo do artigo exibido no Google.'),
 
-                    TiptapEditor::make('content')
-                        ->required()
-                        ->columnSpanFull()
-                        ->label('Conteúdo do Artigo'),
-
-                    Select::make('status')
+                    Forms\Components\Select::make('status')
                         ->options([
                             'draft' => 'Rascunho',
                             'published' => 'Publicado',
@@ -72,17 +69,76 @@ class PostResource extends Resource
                         ->default('draft')
                         ->required()
                         ->label('Status'),
-                    FileUpload::make('image')
+
+                    Forms\Components\DateTimePicker::make('published_at')
+                        ->label('Data de Publicação')
+                        ->default(now()),
+
+                    Forms\Components\FileUpload::make('image')
                         ->image()
                         ->directory('posts')
                         ->label('Imagem de Capa')
                         ->imageEditor()
                         ->columnSpanFull(),
 
-                    DateTimePicker::make('published_at')
-                        ->label('Data de Publicação')
-                        ->default(now()),
-                ])->columns(2)
+                    // BUILDER PARA O CONTEÚDO DO ARTIGO
+                    Forms\Components\Builder::make('content')
+                        ->label('Conteúdo do Artigo')
+                        ->blocks([
+                            
+                            // BLOCO 1: TEXTO (RICH TEXT)
+                            Forms\Components\Builder\Block::make('text')
+                                ->label('Texto (Rich Text)')
+                                ->icon('heroicon-o-document-text')
+                                ->schema([
+                                    Forms\Components\RichEditor::make('content')
+                                        ->label('Conteúdo')
+                                        ->required(),
+                                ]),
+
+                            // BLOCO 2: PRODUTO AFILIADO (AGORA CORRETAMENTE DENTRO DO BLOCKS)
+                            Forms\Components\Builder\Block::make('affiliate_product')
+                                ->label('Produto Afiliado')
+                                ->icon('heroicon-o-shopping-cart')
+                                ->schema([
+                                    Forms\Components\TextInput::make('title')
+                                        ->label('Nome do Produto')
+                                        ->placeholder('Ex: Echo Dot 5')
+                                        ->required(),
+
+                                    Forms\Components\Textarea::make('description') // 'Textarea' com 'a' minúsculo
+                                        ->label('Descrição curta')
+                                        ->rows(2),
+
+                                    Forms\Components\TextInput::make('image')
+                                        ->label('URL da Imagem do Produto')
+                                        ->url()
+                                        ->required(),
+
+                                    Forms\Components\TextInput::make('link')
+                                        ->label('Link de Afiliado')
+                                        ->url()
+                                        ->required(),
+
+                                    Forms\Components\TextInput::make('price')
+                                        ->label('Preço do Produto')
+                                        ->required(),
+
+                                    Forms\Components\Select::make('store')
+                                        ->options([
+                                            'amazon' => 'Amazon',
+                                            'mercadolivre' => 'Mercado Livre',
+                                            'outro' => 'Outra Loja',
+                                        ])
+                                        ->default('amazon')
+                                        ->required(),
+                                ]),
+
+                        ])
+                        ->columnSpanFull()
+                        ->collapsible(),
+
+                ])->columnSpanFull()->collapsible(),
             ]);
     }
 
