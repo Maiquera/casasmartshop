@@ -81,12 +81,10 @@ class PostResource extends Resource
                         ->imageEditor()
                         ->columnSpanFull(),
 
-                    // BUILDER PARA O CONTEÚDO DO ARTIGO
                     Forms\Components\Builder::make('content')
                         ->label('Conteúdo do Artigo')
                         ->blocks([
                             
-                            // BLOCO 1: TEXTO (RICH TEXT)
                             Forms\Components\Builder\Block::make('text')
                                 ->label('Texto (Rich Text)')
                                 ->icon('heroicon-o-document-text')
@@ -96,7 +94,6 @@ class PostResource extends Resource
                                         ->required(),
                                 ]),
 
-                            // BLOCO 2: PRODUTO AFILIADO (AGORA CORRETAMENTE DENTRO DO BLOCKS)
                             Forms\Components\Builder\Block::make('affiliate_product')
                                 ->label('Produto Afiliado')
                                 ->icon('heroicon-o-shopping-cart')
@@ -106,7 +103,7 @@ class PostResource extends Resource
                                         ->placeholder('Ex: Echo Dot 5')
                                         ->required(),
 
-                                    Forms\Components\Textarea::make('description') // 'Textarea' com 'a' minúsculo
+                                    Forms\Components\Textarea::make('description')
                                         ->label('Descrição curta')
                                         ->rows(2),
 
@@ -133,11 +130,9 @@ class PostResource extends Resource
                                         ->default('amazon')
                                         ->required(),
                                 ]),
-
                         ])
                         ->columnSpanFull()
                         ->collapsible(),
-
                 ])->columnSpanFull()->collapsible(),
             ]);
     }

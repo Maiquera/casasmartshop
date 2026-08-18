@@ -4,13 +4,21 @@
 
 @section('content')
 
-    <div class="mb-10 text-center md:text-left bg-black">
-        <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-2">
-            Descomplique a sua <span class="text-amber-500">Casa Inteligente</span>
-        </h1>
-        <p class="text-slate-600 text-sm md:text-base max-w-2xl">
-            Análises imparciais, guias de instalação e as melhores ofertas de dispositivos de automação residencial.
-        </p>
+    <div class="grid grid-cols-1 lg:grid-cols-12 items-center gap-12 mb-2">
+
+        <div class="lg:col-span-5">
+            <h1 class="text-3xl md:text-6xl font-extrabold text-slate-900 tracking-tight mb-2">
+                Transforme sua casa em uma <span class="text-amber-500">Casa Inteligente</span>
+            </h1>
+            <p class="text-slate-600 text-sm md:text-base max-w-2xl">
+                Reviews, comparativos, tutoriais e as melhores ofertas para automatizar sua casa com segurança.
+            </p>
+        </div>
+
+        <div class="lg:col-span-7 flex justify-center lg:justify-end">
+            <img src="{{ asset('images/home_hero.png') }}" class="w-full max-w-2xl" alt="Sala Inteligente">
+        </div>
+
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -41,11 +49,8 @@
                                             {{ $post->created_at->format('d/m/Y') }}</span>
                                     </div>
                                     {{-- Imagem principal do card (prioriza a imagem do produto, se existir) --}}
-                                    <img 
-                                        src="{{ $post->first_product_image ?: asset('storage/' . $post->image) }}" 
-                                        alt="{{ $post->title }}" 
-                                        class="w-full h-48 object-cover rounded-t-lg"
-                                    >
+                                    <img src="{{ $post->first_product_image ?: asset('storage/' . $post->image) }}"
+                                        alt="{{ $post->title }}" class="w-full h-48 object-cover rounded-t-lg">
 
                                     <h2
                                         class="font-bold text-slate-900 text-lg leading-snug group-hover:text-amber-600 transition mb-2 line-clamp-2">

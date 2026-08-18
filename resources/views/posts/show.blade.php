@@ -29,7 +29,6 @@
                 <div class="mb-10 space-y-6">
                     @if (is_array($post->content))
                         @foreach ($post->content as $block)
-                            {{-- 1. BLOCO DE TEXTO (Com suas estilizações do Tailwind Prose) --}}
                             @if (($block['type'] ?? null) === 'text')
                                 <div
                                     class="prose max-w-none leading-relaxed 
@@ -53,19 +52,17 @@
 
                             prose-img:rounded-xl
 
-                            prose-figure:my-4 prose-figure:flex prose-figure:flex-col prose-figure:justify-center prose-figure:items-center prose-figure:gap-2 prose-figure:bg-black
+                            prose-figure:flex prose-figure:flex-col prose-figure:justify-center prose-figure:items-center
                             ">
                                     {!! $block['data']['content'] !!}
                                 </div>
 
-                                {{-- 2. BLOCO DO CARD DE PRODUTO AFILIADO --}}
                             @elseif(($block['type'] ?? null) === 'affiliate_product')
                                 <x-affiliate-card :title="$block['data']['title']" :description="$block['data']['description'] ?? null" :image="$block['data']['image']" :link="$block['data']['link']"
                                     :price="$block['data']['price'] ?? null" :store="$block['data']['store'] ?? 'amazon'" />
                             @endif
                         @endforeach
                     @else
-                        {{-- Compatibilidade para posts antigos que não usam o Builder --}}
                         <div
                             class="prose max-w-none text-slate-700 leading-6
                             prose-ul:list-disc prose-ul:pl-6
