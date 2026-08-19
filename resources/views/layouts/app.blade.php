@@ -153,21 +153,18 @@
                         </li>
                     </ul>
                 </div>
-                 <div>
+                <div>
                     <h4 class="text-white font-semibold text-sm mb-3">Categorias</h4>
                     <ul class="space-y-2 text-xs">
-                        <li><a href="{{ route('pages.about') }}" class="hover:text-amber-400 transition">Assistentes
-                                Virtuais</a></li>
-                        <li><a href="{{ route('pages.privacy') }}" class="hover:text-amber-400 transition">Casa
-                                Inteligente</a></li>
-                        <li><a href="{{ route('pages.terms') }}" class="hover:text-amber-400 transition">Iluminação
-                                Inteligente</a></li>
-                        <li><a href="{{ route('pages.contact') }}" class="hover:text-amber-400 transition">Robos
-                                Limpadores</a></li>
-                        <li><a href="{{ route('pages.terms') }}" class="hover:text-amber-400 transition">Segurança
-                            Inteligente</a></li>
-                        <li><a href="{{ route('pages.contact') }}" class="hover:text-amber-400 transition">Tutorias
-                                e Dicas</a></li>
+
+                        @foreach ($navCategories as $category)
+                        <li>
+                            <a href="{{ route('categories.show', $category->slug) }}"
+                                class="px-3 py-1.5 rounded-lg whitespace-nowrap transition {{ request()->is('categoria/' . $category->slug) }}">
+                                {{ $category->name }}
+                            </a>
+                        </li>
+                        @endforeach
                     </ul>
                 </div>
                 <div>
