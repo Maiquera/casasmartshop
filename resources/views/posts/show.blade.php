@@ -5,6 +5,39 @@
 
 @section('og_type', 'article')
 
+@push('schema')
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ addslashes($post->title) }}",
+  "description": "{{ addslashes($post->meta_description) }}",
+  "image": [
+    "{{ asset('storage/' . $post->cover_image) }}"
+  ],
+  "datePublished": "{{ $post->created_at->toIso8601String() }}",
+  "dateModified": "{{ $post->updated_at->toIso8601String() }}",
+  "author": {
+    "@type": "Organization",
+    "name": "Casa Smart Shop",
+    "url": "{{ config('app.url') }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Casa Smart Shop",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ asset('images/Logo.png') }}"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ url()->current() }}"
+  }
+}
+</script>
+@endpush
+
 @section('content')
     <div class="max-w-7xl mx-auto px-4 py-8">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">

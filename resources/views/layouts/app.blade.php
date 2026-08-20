@@ -26,6 +26,7 @@
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     {{-- Mobile --}}
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    @stack('schema')
 </head>
 
 <body class="bg-blue-100 text-slate-800 antialiased flex flex-col min-h-screen">
