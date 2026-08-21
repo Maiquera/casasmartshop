@@ -47,7 +47,7 @@
             <div>
                 @if(!empty($price))
                     <span class="mb-0.5 block text-[10px] font-bold uppercase tracking-wider text-slate-400">Preço estimado</span>
-                    <span class="text-2xl font-extrabold text-emerald-600">R$ {{ $price }}</span>
+                    <span class="text-2xl font-extrabold text-emerald-600">R$ {{ number_format($price, 2, ',', '.') }}</span>
                 @else
                     <span class="text-sm font-medium italic text-slate-400">Verificar valor no site</span>
                 @endif

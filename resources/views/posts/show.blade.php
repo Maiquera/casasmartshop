@@ -58,10 +58,11 @@
 
                 @if ($post->image)
                     <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}"
-                        class="w-full h-72 md:h-96 object-cover rounded-xl mb-5">
+                        class="w-full h-72 md:h-96 object-contain rounded-xl mb-5">
+                        {{-- w-20 h-20 object-contain rounded-lg bg-white p-2 border border-gray-100 --}}
                 @endif
 
-                <h1 class="text-2xl md:text-4xl font-extrabold text-slate-700 leading-tight mb-3">
+                <h1 class="text-2xl md:text-4xl font-extrabold text-slate-800 leading-tight mb-3">
                     {{ $post->title }}
                 </h1>
 
@@ -72,27 +73,22 @@
                                 <div
                                     class="prose max-w-none leading-relaxed 
                             
-                            prose-h2:mt-3
-                            prose-h2:mb-1
-                            prose-h2:text-slate-800
+                                    prose-h2:mt-3 prose-h2:mb-1 prose-h2:text-slate-700
 
-                            prose-h3:my-1
-                            prose-h3:text-slate-700
-                    
-                            prose-p:my-0
-                            prose-p:indent-2
+                                    prose-h3:my-1 prose-h3:text-slate-700
+                            
+                                    prose-p:my-0 prose-p:indent-2
 
-                            prose-ul:list-disc
-                            prose-ul:my-0
-                            marker:text-amber-500 marker:font-bold
+                                    prose-ul:list-disc prose-ul:my-0
+                                    marker:text-amber-500 marker:font-bold
 
-                            prose-a:none
-                            prose-a:text-hover:text-amber-600 prose-a:font-semibold prose-a:underline
+                                    prose-a:none prose-a:text-hover:text-amber-600 prose-a:font-semibold prose-a:underline
 
-                            prose-img:rounded-xl
+                                    prose-img:w-full md:prose-img:w-1/2 md:prose-img:mx-auto     
+                                    prose-figcaption:hidden
+                                    prose-figure:my-0
+                                    ">
 
-                            prose-figure:flex prose-figure:flex-col prose-figure:justify-center prose-figure:items-center
-                            ">
                                     {!! $block['data']['content'] !!}
                                 </div>
                             @elseif(($block['type'] ?? null) === 'affiliate_product')
