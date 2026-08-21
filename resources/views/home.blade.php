@@ -35,7 +35,7 @@
                                     <a href="{{ route('posts.show', $post->slug) }}"
                                         class="block overflow-hidden aspect-video">
                                         <img src="{{ asset('storage/' . $post->featured_image) }}" alt="{{ $post->title }}"
-                                            class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                                            class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
                                     </a>
                                 @endif
 
@@ -48,9 +48,9 @@
                                         <span class="text-xs text-gray-400">•
                                             {{ $post->created_at->format('d/m/Y') }}</span>
                                     </div>
-                                    {{-- Imagem principal do card (prioriza a imagem do produto, se existir) --}}
+
                                     <img src="{{ $post->first_product_image ?: asset('storage/' . $post->image) }}"
-                                        alt="{{ $post->title }}" class="w-full h-48 object-cover rounded-t-lg">
+                                        alt="{{ $post->title }}" class="w-full h-48 object-contain rounded-t-lg">
 
                                     <h2
                                         class="font-bold text-slate-900 text-lg leading-snug group-hover:text-amber-600 transition mb-2 line-clamp-2">
