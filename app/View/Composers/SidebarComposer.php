@@ -9,7 +9,31 @@ class SidebarComposer
 {
     public function compose(View $view): void
     {
-        $mostReadPosts = Post::orderBy('views_count','desc')
+        $data = $view->getData();
+        
+        $categoryId = null;
+        $currentPostId = null;
+
+        if (isset($data['category'])) {
+            $categoryId = $data['category']->id;
+        } 
+      
+        elseif (isset($data['post'])) {
+            $categoryId = $data['post']->category_id;
+            $currentPostId = $data['post']->id; 
+        }
+
+        $query = Post::where('status', 'published');
+
+        if ($categoryId) {
+            $query->where('category_id', $categoryId);
+        }
+
+        if ($currentPostId) {
+            $query->where('id', '!=', $currentPostId);
+        }
+
+        $mostReadPosts = $query->orderBy('views_count', 'desc')
             ->take(5)
             ->get();
 
