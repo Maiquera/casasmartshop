@@ -26,6 +26,8 @@ class PostController extends Controller
             ->where('status', 'published')
             ->firstOrFail();
 
+        $post->incrementQuietly('views_count');
+
         return view('posts.show', compact('post'));
     }
 

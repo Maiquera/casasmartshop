@@ -23,5 +23,6 @@ class AppServiceProvider extends ServiceProvider
     {
         
         // View::composer('home', SidebarComposer::class);
+        View::composer('components.sidebar-posts', SidebarComposer::class);
     }
 }

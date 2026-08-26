@@ -5,7 +5,7 @@
         </h3>
 
         <div class="space-y-4">
-            @forelse ($sidebarPosts as $sidePost)
+            @forelse ($mostReadPosts as $sidePost)
                 @php
                     $imageUrl =
                         $sidePost->first_product_image ?:
