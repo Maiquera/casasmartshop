@@ -45,10 +45,11 @@
 
 
 @section('content')
-    <div class="max-w-7xl mx-auto px-4 py-8">
+    {{-- <div class="max-w-7xl mx-auto px-1 py-8 bg-black"> --}}
+    <div class="max-w-7xl">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
-            <main class="lg:col-span-2 bg-white p-6 md:p-8 rounded-2xl border border-gray-100 shadow-sm">
+            <main class="lg:col-span-2 bg-white p-2 md:p-8 rounded-2xl border border-gray-100 shadow-sm">
 
                 <div class="flex items-center gap-2 text-xs font-semibold text-amber-600 uppercase mb-3">
                     <span>{{ $post->category->name ?? 'Geral' }}</span>
@@ -77,7 +78,7 @@
 
                                     prose-h3:my-1 prose-h3:text-slate-700
                             
-                                    prose-p:my-0 prose-p:indent-2
+                                    prose-p:my-0
 
                                     prose-ul:list-disc prose-ul:my-0
                                     marker:text-amber-500 marker:font-bold
@@ -117,8 +118,7 @@
                         </h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             @foreach ($post->products as $product)
-                                <div
-                                    class="bg-amber-50/50 border border-amber-200/60 rounded-xl p-5 flex flex-col justify-between">
+                                <div class="bg-amber-50/50 border border-amber-200/60 rounded-xl p-5 flex flex-col justify-between">
                                     <div>
                                         @if ($product->is_featured)
                                             <span

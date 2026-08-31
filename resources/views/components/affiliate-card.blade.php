@@ -11,13 +11,12 @@
     $store = strtolower(trim($store));
 @endphp
 
-<div class="my-8 max-w-3xl mx-auto overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md flex flex-col sm:flex-row">
-    
-    <div class="flex w-full items-center justify-center border-b border-gray-100 bg-white p-6 sm:w-2/5 sm:border-b-0 sm:border-r">
+<div class="flex flex-col sm:flex-row rounded-2xl border border-gray-200 shadow-sm transition-shadow hover:shadow-md overflow-hidden">    
+    <div class="flex w-full items-center justify-center border-b border-gray-100 bg-white p-2 sm:w-2/5 sm:border-b-0 sm:border-r">
         <img src="{{ $image }}" alt="{{ $title }}" class="max-h-48 object-contain mix-blend-multiply transition duration-300 hover:scale-105" loading="lazy">
     </div>
 
-    <div class="flex w-full flex-col justify-between p-6 sm:w-3/5">
+    <div class="flex w-full flex-col justify-between p-2 sm:w-3/5">
         <div>
             <!-- BADGE DA LOJA -->
             <div class="mb-2">
@@ -43,7 +42,7 @@
             @endif
         </div>
 
-        <div class="mt-2 flex items-center justify-between border-t border-gray-100 pt-4">
+        <div class="mt-2 flex items-center justify-between border-t border-gray-200 pt-4">
             <div>
                 @if(!empty($price))
                     <span class="mb-0.5 block text-[10px] font-bold uppercase tracking-wider text-slate-400">Preço estimado</span>
@@ -58,7 +57,7 @@
                     Ver no Mercado Livre &rarr;
                 </a>
             @elseif($store === 'amazon')
-                <a href="{{ $link }}" target="_blank" rel="nofollow noopener" class="inline-flex items-center gap-2 rounded-xl bg-amber-500 px-5 py-3 text-sm font-bold text-slate-900 shadow-sm transition duration-200 hover:bg-amber-600">
+                <a href="{{ $link }}" target="_blank" rel="nofollow noopener" class="inline-flex items-center gap-2 rounded-xl bg-amber-500 px-3 py-3 text-sm font-bold text-slate-900 shadow-sm transition duration-200 hover:bg-amber-600">
                     Ver na Amazon &rarr;
                 </a>
             @else

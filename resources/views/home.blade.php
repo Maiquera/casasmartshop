@@ -16,13 +16,13 @@
         </div>
 
         <div class="lg:col-span-7 flex justify-center lg:justify-end">
-            <img src="{{ asset('images/home_hero.png') }}" class="w-full max-w-2xl" alt="Sala Inteligente">
+            <img src="{{ asset('images/home_hero.png') }}" class="w-full" alt="Sala Inteligente">
         </div>
 
     </div>
-
+    <h2 class="text-1xl md:text-2xl font-extrabold text-slate-900 tracking-tight mb-2">ÚLTIMOS ARTIGOS</h2>
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-
+        
         <div class="lg:col-span-8 space-y-8">
 
             @if ($posts->count() > 0)

@@ -26,9 +26,9 @@ class SidebarPosts extends Component
 
         if ($this->category) {
             $query->where('category_id', $this->category->id);
-            $this->title = 'Últimos em ' . $this->category->name;
+            $this->title = '🔥 Mais lidos em ' . $this->category->name;
         } else {
-            $this->title = 'Últimos Artigos';
+            $this->title = '🔥 Artigos mais lidos';
         }
 
         if ($this->exceptPostId) {

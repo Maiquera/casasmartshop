@@ -14,8 +14,8 @@
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-
         <div class="lg:col-span-8 space-y-8">
+            <h2 class="text-1xl md:text-3xl font-extrabold text-slate-900 tracking-tight mb-2">ÚLTIMOS ARTIGOS</h2>
             @forelse($posts as $post)
                 <article
                     class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition">
@@ -40,6 +40,7 @@
                 </div>
             @endforelse
         </div>
+        
         <aside class="lg:col-span-4 space-y-8 sticky top-24">
             <x-sidebar-posts :category="$category" />
         </aside>
