@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Casa Smart Shop - Seu Guia de Casa Inteligente')</title>
     <meta name="description" content="@yield('meta_description', 'Encontre os melhores guias, análises e dispositivos para transformar sua casa em uma Smart Home.')">
-
+    <link rel="icon" type="image/png" href="{{ asset('images/icon_final.png') }}">
     <link rel="canonical" href="{{ url()->current() }}">
     <meta property="og:locale" content="pt_BR">
     <meta property="og:type" content="@yield('og_type', 'website')">
@@ -22,7 +22,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="@yield('title', 'Casa Smart Shop')">
     <meta name="twitter:description" content="@yield('meta_description', 'Análises e recomendações dos melhores dispositivos de automação residencial.')">
-
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     {{-- Mobile --}}
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -39,10 +40,10 @@
 
                 <div class="flex items-center gap-3 shrink-0">
                     <a href="{{ route('home') }}" class="flex items-center gap-2 group">
-                        <img src="{{ asset('images/Logo.png') }}" alt="Casa Smart Shop" class="h-20">
+                        <img src="{{ asset('images/icone_navbar_img.webp') }}" alt="Casa Smart Shop" class="h-10">
                         <span
-                            class="font-bold bg-gradient-to-r from-white via-sky-400 to-[#ca9540] bg-clip-text text-transparent">
-                            CasaSmartShop
+                            class="font-bold bg-gradient-to-r from-white via-sky-400 to-[#ca9540] bg-clip-text text-transparent ml-2">
+                            Casa Smart Shop
                         </span>
                     </a>
                 </div>
@@ -68,7 +69,7 @@
 
                 <div class="flex md:hidden items-center">
                     <button @click="open = !open" type="button"
-                        class="text-slate-600 hover:text-slate-900 p-2 focus:outline-none">
+                        class="text-[#ca9540] hover:text-amber-600 p-2 focus:outline-none">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path x-show="!open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 6h16M4 12h16M4 18h16" />
@@ -159,12 +160,12 @@
                     <ul class="space-y-2 text-xs">
 
                         @foreach ($navCategories as $category)
-                        <li>
-                            <a href="{{ route('categories.show', $category->slug) }}"
-                                class="px-3 py-1.5 rounded-lg whitespace-nowrap transition {{ request()->is('categoria/' . $category->slug) }}">
-                                {{ $category->name }}
-                            </a>
-                        </li>
+                            <li>
+                                <a href="{{ route('categories.show', $category->slug) }}"
+                                    class="px-3 py-1.5 rounded-lg whitespace-nowrap transition {{ request()->is('categoria/' . $category->slug) }}">
+                                    {{ $category->name }}
+                                </a>
+                            </li>
                         @endforeach
                     </ul>
                 </div>
@@ -179,6 +180,29 @@
             <div class="border-t border-slate-800 pt-6 text-center text-xs text-slate-400">
                 &copy; {{ date('Y') }} Casa Smart Shop.
                 Conteúdo protegido por direitos autorais.
+            </div>
+
+            {{-- redes sociais --}}
+            <div class="flex justify-center gap-4">
+                <a href="https://www.instagram.com/casa_smartshop/" aria-label="Instagram" class="text-slate-400 hover:text-pink-500 transition">
+                    <i class="fa-brands fa-instagram text-xl"></i>
+                </a>
+
+                {{-- <a href="#" aria-label="TikTok" class="text-slate-400 hover:text-white transition">
+                    <i class="fa-brands fa-tiktok text-xl"></i>
+                </a> --}}
+
+                {{-- <a href="#" aria-label="YouTube" class="text-slate-400 hover:text-red-500 transition">
+                    <i class="fa-brands fa-youtube text-xl"></i>
+                </a> --}}
+
+                {{-- <a href="#" aria-label="Pinterest" class="text-slate-400 hover:text-red-500 transition">
+                    <i class="fa-brands fa-pinterest text-xl"></i>
+                </a> --}}
+
+                {{-- <a href="#" aria-label="Facebook" class="text-slate-400 hover:text-red-500 transition">
+                    <i class="fa-brands fa-facebook text-xl"></i>
+                </a> --}}
             </div>
         </div>
     </footer>

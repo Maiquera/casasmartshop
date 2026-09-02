@@ -16,7 +16,7 @@
         </div>
 
         <div class="lg:col-span-7 flex justify-center lg:justify-end">
-            <img src="{{ asset('images/home_hero.png') }}" class="w-full" alt="Sala Inteligente">
+            <img src="{{ asset('images/home_hero_final.webp') }}" class="w-full" alt="Sala Inteligente">
         </div>
 
     </div>
