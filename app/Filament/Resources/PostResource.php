@@ -89,7 +89,7 @@ class PostResource extends Resource
                                 ->label('Texto (Rich Text)')
                                 ->icon('heroicon-o-document-text')
                                 ->schema([
-                                    Forms\Components\RichEditor::make('content')
+                                    TiptapEditor::make('content')
                                         ->label('Conteúdo')
                                         ->required(),
                                 ]),
