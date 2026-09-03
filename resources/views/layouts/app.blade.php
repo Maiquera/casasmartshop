@@ -131,7 +131,10 @@
         <div class="max-w-7xl mx-auto px-4 py-12">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <div>
-                    <h3 class="text-white font-bold text-lg mb-3">Casa Smart Shop</h3>
+                    <div class="flex items-center gap-2 mb-3">
+                        <img src="{{ asset('images/icon_final.png') }}" alt="Casa Smart Shop" class="h-5">
+                        <h3 class="text-white font-bold text-lg">Casa Smart Shop</h3>
+                    </div>
                     <p class="text-xs leading-relaxed text-slate-400">
                         Descubra os melhores dispositivos para transformar sua casa em uma Smart Home. Publicamos
                         análises, comparativos, guias de compra e dicas para ajudar você a escolher os equipamentos

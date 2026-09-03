@@ -31,14 +31,6 @@
                         <article
                             class="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition group flex flex-col justify-between">
                             <div>
-                                @if ($post->featured_image)
-                                    <a href="{{ route('posts.show', $post->slug) }}"
-                                        class="block overflow-hidden aspect-video">
-                                        <img src="{{ asset('storage/' . $post->featured_image) }}" alt="{{ $post->title }}"
-                                            class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
-                                    </a>
-                                @endif
-
                                 <div class="p-5">
                                     <div class="flex items-center gap-2 mb-2">
                                         <span
@@ -49,7 +41,7 @@
                                             {{ $post->created_at->format('d/m/Y') }}</span>
                                     </div>
 
-                                    <img src="{{ $post->first_product_image ?: asset('storage/' . $post->image) }}"
+                                    <img src="{{ asset('storage/' . $post->image) }}"
                                         alt="{{ $post->title }}" class="w-full h-48 object-contain rounded-t-lg">
 
                                     <h2

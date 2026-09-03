@@ -75,9 +75,7 @@
                                     class="prose max-w-none leading-relaxed 
                             
                                     prose-h2:mt-3 prose-h2:mb-1 prose-h2:text-slate-700
-
                                     prose-h3:my-1 prose-h3:text-slate-700
-                            
                                     prose-p:my-0
 
                                     prose-ul:list-disc prose-ul:my-0
@@ -88,6 +86,15 @@
                                     prose-img:w-full md:prose-img:w-1/2 md:prose-img:mx-auto     
                                     prose-figcaption:hidden
                                     prose-figure:my-0
+
+                                    prose-table:table-layout-fixed 
+                                    prose-table:w-full 
+                                    prose-table:overflow-x-auto
+                                    prose-table:border-collapse
+                                    prose-table:border prose-table:border-gray-200 prose-table:bg-white
+                                    prose-hr:my-4
+                                    prose-th:px-1 prose-th:py-1 prose-th:text-left prose-th:text-xs prose-th:font-semibold prose-th:text-gray-700 prose-th:whitespace-nowrap
+                                    prose-td:px-1 prose-td:py-1 prose-td:text-left prose-td:text-xs prose-td:text-gray-700 prose-td:whitespace-nowrap
                                     ">
 
                                     {!! $block['data']['content'] !!}
