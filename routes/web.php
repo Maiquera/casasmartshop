@@ -7,6 +7,7 @@ use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\LinkController;
 
 
 Route::get('/', [PostController::class, 'index'])->name('home');
@@ -28,3 +29,5 @@ Route::post('/newsletter', [NewsletterController::class, 'subscribe'])->name('ne
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 
 Route::get('/busca', [PostController::class, 'search'])->name('posts.search');
+
+Route::get('/links', [LinkController::class, 'index'])->name('links.index');

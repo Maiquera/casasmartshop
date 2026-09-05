@@ -21,7 +21,7 @@
                     class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition">
                     <div class="p-6">
                         <img src="{{ $post->first_product_image ?: asset('storage/' . $post->image) }}"
-                            alt="{{ $post->title }}" class="w-full h-48 object-cover rounded-t-lg">
+                            alt="{{ $post->title }}" class="w-full h-48 object-contain rounded-t-lg">
                         <h2 class="text-xl font-bold text-slate-800 hover:text-amber-600 transition">
                             <a href="{{ route('posts.show', $post->slug) }}">{{ $post->title }}</a>
                         </h2>
