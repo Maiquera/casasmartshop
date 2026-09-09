@@ -18,16 +18,19 @@
 ## 📸 Demonstração
 
 ### Tela Inicial (Desktop)
-![Home Page](https://link-da-sua-imagem-ou-caminho-local.png)
+![Home Page]<img width="1440" height="900" alt="Screenshot from 2026-09-08 23-28-10" src="https://github.com/user-attachments/assets/7a3a5380-1e6a-4238-9e1c-456b20abe563" />
+
 
 <details>
   <summary>📱 Ver versão Mobile e outros fluxos</summary>
   
   ### Layout Responsivo
-  ![Mobile View](https://link-da-sua-imagem-mobile.png)
+  ![Mobile View]<img width="362" height="780" alt="Screenshot from 2026-09-08 23-29-35" src="https://github.com/user-attachments/assets/b072a161-15ee-4090-ac15-f56db9117d2e" />
+
 
   ### Painel do Usuário
-  ![Dashboard](https://link-da-sua-imagem-dashboard.png)
+  ![Dashboard]<img width="1440" height="900" alt="Screenshot from 2026-09-08 23-31-16" src="https://github.com/user-attachments/assets/4c166576-cc9b-4db5-b912-12bcf9b46e17" />
+
 </details>
 ---
 
