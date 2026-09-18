@@ -231,7 +231,7 @@
                     <i class="fa-brands fa-pinterest text-xl"></i>
                 </a>
 
-                <a href="https://www.facebook.com/people/Casa-Smart-Shop/61594255211054" aria-label="Facebook" class="text-slate-400 hover:text-red-500 transition">
+                <a href="https://www.facebook.com/people/Casa-Smart-Shop/61594255211054" aria-label="Facebook" class="text-slate-400 hover:text-blue-600 transition">
                     <i class="fa-brands fa-facebook text-xl"></i>
                 </a>
             </div>
