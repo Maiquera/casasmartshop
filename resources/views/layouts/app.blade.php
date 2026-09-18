@@ -19,11 +19,37 @@
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:site_name" content="Casa Smart Shop">
 
+    <!-- Meta Pixel Code -->
+    <script>
+        ! function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1433495542023523');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1433495542023523&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
+
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="@yield('title', 'Casa Smart Shop')">
     <meta name="twitter:description" content="@yield('meta_description', 'Análises e recomendações dos melhores dispositivos de automação residencial.')">
-    <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     {{-- Mobile --}}
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -187,7 +213,8 @@
 
             {{-- redes sociais --}}
             <div class="flex justify-center gap-4">
-                <a href="https://www.instagram.com/casa_smartshop/" aria-label="Instagram" class="text-slate-400 hover:text-pink-500 transition">
+                <a href="https://www.instagram.com/casa_smartshop/" aria-label="Instagram"
+                    class="text-slate-400 hover:text-pink-500 transition">
                     <i class="fa-brands fa-instagram text-xl"></i>
                 </a>
 
@@ -199,13 +226,13 @@
                     <i class="fa-brands fa-youtube text-xl"></i>
                 </a> --}}
 
-                {{-- <a href="#" aria-label="Pinterest" class="text-slate-400 hover:text-red-500 transition">
+                <a href="https://pin.it/3TLMWm1Zg" aria-label="Pinterest" class="text-slate-400 hover:text-red-500 transition">
                     <i class="fa-brands fa-pinterest text-xl"></i>
-                </a> --}}
+                </a>
 
-                {{-- <a href="#" aria-label="Facebook" class="text-slate-400 hover:text-red-500 transition">
+                <a href="https://www.facebook.com/people/Casa-Smart-Shop/61594255211054" aria-label="Facebook" class="text-slate-400 hover:text-red-500 transition">
                     <i class="fa-brands fa-facebook text-xl"></i>
-                </a> --}}
+                </a>
             </div>
         </div>
     </footer>

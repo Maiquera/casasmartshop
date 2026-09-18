@@ -7,21 +7,13 @@ use App\Models\Post;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Forms\Set;
-use Filament\Forms\Components\Card;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Textarea;
-use Filament\Forms\Components\RichEditor;
-use Filament\Forms\Components\DateTimePicker;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Str;
-use Filament\Forms\Components\FileUpload;
 use Filament\Tables\Columns\ImageColumn;
 use FilamentTiptapEditor\TiptapEditor;
-use Filament\Forms\Components\Builder;
 
 class PostResource extends Resource
 {
