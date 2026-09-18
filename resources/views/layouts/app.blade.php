@@ -18,6 +18,7 @@
     <meta property="og:description" content="@yield('meta_description', 'Análises e recomendações dos melhores dispositivos de automação residencial.')">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:site_name" content="Casa Smart Shop">
+    <meta name="p:domain_verify" content="572809db7b0fc6544faee301500324e4"/>
 
     <!-- Meta Pixel Code -->
     <script>
