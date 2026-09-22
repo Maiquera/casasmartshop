@@ -8,32 +8,30 @@
 @push('schema')
     @php
         $jsonLd = [
-            "@context" => "https://schema.org",
-            "@type" => "BlogPosting",
-            "headline" => $post->title,
-            "description" => $post->meta_description,
-            "image" => [
-                asset('storage/' . $post->cover_image)
+            '@context' => 'https://schema.org',
+            '@type' => 'BlogPosting',
+            'headline' => $post->title,
+            'description' => $post->meta_description,
+            'image' => [asset('storage/' . $post->cover_image)],
+            'datePublished' => $post->created_at->toIso8601String(),
+            'dateModified' => $post->updated_at->toIso8601String(),
+            'author' => [
+                '@type' => 'Organization',
+                'name' => 'Casa Smart Shop',
+                'url' => config('app.url'),
             ],
-            "datePublished" => $post->created_at->toIso8601String(),
-            "dateModified" => $post->updated_at->toIso8601String(),
-            "author" => [
-                "@type" => "Organization",
-                "name" => "Casa Smart Shop",
-                "url" => config('app.url')
+            'publisher' => [
+                '@type' => 'Organization',
+                'name' => 'Casa Smart Shop',
+                'logo' => [
+                    '@type' => 'ImageObject',
+                    'url' => asset('images/logo.png'),
+                ],
             ],
-            "publisher" => [
-                "@type" => "Organization",
-                "name" => "Casa Smart Shop",
-                "logo" => [
-                    "@type" => "ImageObject",
-                    "url" => asset('images/logo.png')
-                ]
+            'mainEntityOfPage' => [
+                '@type' => 'WebPage',
+                '@id' => url()->current(),
             ],
-            "mainEntityOfPage" => [
-                "@type" => "WebPage",
-                "@id" => url()->current()
-            ]
         ];
     @endphp
 
@@ -60,7 +58,7 @@
                 @if ($post->image)
                     <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}"
                         class="w-full h-72 md:h-96 object-contain rounded-xl mb-5">
-                        {{-- w-20 h-20 object-contain rounded-lg bg-white p-2 border border-gray-100 --}}
+                    {{-- w-20 h-20 object-contain rounded-lg bg-white p-2 border border-gray-100 --}}
                 @endif
 
                 <h1 class="text-2xl md:text-4xl font-extrabold text-slate-800 leading-tight mb-3">
@@ -104,6 +102,11 @@
                                     :price="$block['data']['price'] ?? null" :store="$block['data']['store'] ?? 'amazon'" />
                             @endif
                         @endforeach
+                        <p style="font-size: 0.65rem; color: #666;">
+                            <em>Transparência: Este artigo contém links de afiliados. Se você comprar por eles,
+                                podemos receber uma
+                                comissão sem custo adicional para você.</em>
+                        </p>
                     @else
                         <div
                             class="prose max-w-none text-slate-700 leading-6
@@ -125,7 +128,8 @@
                         </h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             @foreach ($post->products as $product)
-                                <div class="bg-amber-50/50 border border-amber-200/60 rounded-xl p-5 flex flex-col justify-between">
+                                <div
+                                    class="bg-amber-50/50 border border-amber-200/60 rounded-xl p-5 flex flex-col justify-between">
                                     <div>
                                         @if ($product->is_featured)
                                             <span
@@ -152,7 +156,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <a href="{{ $product->affiliate_link }}" target="_blank" rel="nofollow noopener"
+                                    <a href="{{ $product->affiliate_link }}" target="_blank"
+                                        rel="sponsored nofollow noopener"
                                         class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-sm px-4 py-2 rounded-lg transition shadow-sm">
                                         Ver na Amazon &rarr;
                                     </a>

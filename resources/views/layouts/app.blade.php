@@ -216,23 +216,23 @@
             <div class="flex justify-center gap-4">
                 <a href="https://www.instagram.com/casa_smartshop/" aria-label="Instagram"
                     class="text-slate-400 hover:text-pink-500 transition">
-                    <i class="fa-brands fa-instagram text-xl"></i>
+                    <i class="fa-brands fa-instagram text-2xl"></i>
                 </a>
 
                 {{-- <a href="#" aria-label="TikTok" class="text-slate-400 hover:text-white transition">
-                    <i class="fa-brands fa-tiktok text-xl"></i>
+                    <i class="fa-brands fa-tiktok text-2xl"></i>
                 </a> --}}
 
                 {{-- <a href="#" aria-label="YouTube" class="text-slate-400 hover:text-red-500 transition">
-                    <i class="fa-brands fa-youtube text-xl"></i>
+                    <i class="fa-brands fa-youtube text-2xl"></i>
                 </a> --}}
 
                 <a href="https://pin.it/3TLMWm1Zg" aria-label="Pinterest" class="text-slate-400 hover:text-red-500 transition">
-                    <i class="fa-brands fa-pinterest text-xl"></i>
+                    <i class="fa-brands fa-pinterest text-2xl"></i>
                 </a>
 
                 <a href="https://www.facebook.com/people/Casa-Smart-Shop/61594255211054" aria-label="Facebook" class="text-slate-400 hover:text-blue-600 transition">
-                    <i class="fa-brands fa-facebook text-xl"></i>
+                    <i class="fa-brands fa-facebook text-2xl"></i>
                 </a>
             </div>
         </div>
