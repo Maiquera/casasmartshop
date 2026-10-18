@@ -3,25 +3,22 @@
     
     <url>
         <loc>{{ url('/') }}</loc>
-        <changefreq>daily</changefreq>
-        <priority>1.0</priority>
+        <lastmod>{{ now()->tz('UTC')->toAtomString() }}</lastmod>
     </url>
 
     @foreach($categories as $category)
         <url>
             <loc>{{ route('categories.show', $category->slug) }}</loc>
-            <changefreq>weekly</changefreq>
-            <priority>0.8</priority>
+            @if($category->updated_at)
+                <lastmod>{{ $category->updated_at->tz('UTC')->toAtomString() }}</lastmod>
+            @endif
         </url>
     @endforeach
 
-    
     @foreach($posts as $post)
         <url>
             <loc>{{ route('posts.show', $post->slug) }}</loc>
             <lastmod>{{ $post->updated_at->tz('UTC')->toAtomString() }}</lastmod>
-            <changefreq>weekly</changefreq>
-            <priority>0.9</priority>
         </url>
     @endforeach
 
